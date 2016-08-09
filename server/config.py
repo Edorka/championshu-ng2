@@ -1,6 +1,5 @@
 import os
 
-
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
@@ -17,9 +16,8 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
-        'APP_DEVELOPMENT_DATABASE_URI'
-    )
+    pathToDB = os.path.join(basedir, 'db/dev.db')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + pathToDB
 
 
 class TestingConfig(Config):

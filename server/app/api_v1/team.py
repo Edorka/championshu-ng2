@@ -8,9 +8,8 @@ from ..schemas.team import team_schema, teams_schema
 
 @api.route('/teams', methods=['GET'])
 def get_teams():
-    print dir(Team)
     all_teams = Team.query.all()
-    result = users_schema.dump(all_teams)
+    result = teams_schema.dump(all_teams)
     return jsonify(result.data)
 
 
