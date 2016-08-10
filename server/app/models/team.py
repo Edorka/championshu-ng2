@@ -9,4 +9,4 @@ class Team(db.Model):
     
 
     def __repr__(self):
-        return 'Team {}>'.format(self.name)
+        return '<Team {}>'.format(self.name)
