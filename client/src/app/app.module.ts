@@ -6,15 +6,17 @@ import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import { RestangularModule } from 'ng2-restangular';
+import { TeamListComponent } from './team-list/team-list.component';
+import { environment } from '../environments/environment';
 
 const app_routes: Routes = [
-  // { path: 'test', component: TestComponent },
+  { path: 'teams', component: TeamListComponent },
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
 // Function for settting the default restangular configuration
 export function RestangularConfigFactory (RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://api.restng2.local/v1');
+  RestangularProvider.setBaseUrl(environment.APIEndpoint);
   RestangularProvider.setDefaultHeaders({'Authorization': 'Bearer UDXPx-Xko0w4BRKajozCVy20X11MRZs1'});
 }
 
@@ -25,6 +27,7 @@ export const app_routing = RouterModule.forRoot(app_routes);
 @NgModule({
   declarations: [
     AppComponent,
+    TeamListComponent,
   ],
   imports: [
     MaterialModule,
