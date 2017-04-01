@@ -1,6 +1,6 @@
 import { ChampionshuPage } from './app.po';
 
-describe('championshu App', function() {
+describe('championshu App', () => {
   let page: ChampionshuPage;
 
   beforeEach(() => {
