@@ -1,11 +1,11 @@
-<h1>Set your team data</h1>
-
-<p>
-  team-create-dialog works!
-</p>
-<div layout="row" layout-align="center center">
-  <input [(ngModel)]="team.name">
-
-
+<h2 md-dialog-title>Details of the new team</h2>
+<md-dialog-content>
+  <div layout="row" layout-align="center center">
+    <md-input-container>
+      <input mdInput [(ngModel)]="team.name" placeholder="Team Name">
+    </md-input-container>
+  </div>
+</md-dialog-content>
+<md-dialog-actions>
   <button md-button (click)="requestSave($event)">Add your team</button>
-</div>
+</md-dialog-actions>
