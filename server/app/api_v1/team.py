@@ -12,7 +12,7 @@ from sqlalchemy.exc import IntegrityError
 def get_teams():
     all_teams = Team.query.all()
     result = teams_schema.dump(all_teams)
-    return jsonify(result.data)
+    return jsonify(items=result.data)
 
 
 @api.route('/teams/<int:id>', methods=['GET'])
@@ -41,7 +41,7 @@ def create_team():
         return jsonify(result.data)
     except IntegrityError as error:
         return jsonify({'reason': error.message})
-    
+
 
 @api.route('/teams/<int:id>', methods=['PUT'])
 def update_team(id):
@@ -64,5 +64,3 @@ def delete_team(id):
         return jsonify({"confirmed": True}), 200
     except NoResultFound:
         return jsonify({"message": "Team not found"}), 404
-
-
