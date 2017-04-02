@@ -1,3 +1,6 @@
-<p>
-  team-list works!
-</p>
+<button md-button (click)="addTeam($event)">Add your team</button>
+{{teams | json}}
+<span *ngIf="teams && teams.length === 0"> No teams recorded. </span>
+<ul>
+  <li *ngFor="let team of team">{{team.name}} </li>
+</ul>
