@@ -8,7 +8,7 @@ import { TeamCreateDialogComponent } from '../team-create-dialog/team-create-dia
   styleUrls: ['./team-list.component.css'],
 })
 export class TeamListComponent implements OnInit {
-  teams;
+  teams: any[];
   newTeam;
   config: MdDialogConfig = {
     disableClose: false,
@@ -26,7 +26,7 @@ export class TeamListComponent implements OnInit {
 
   ngOnInit() {
     this.restangular.all('teams').getList().subscribe(teams => {
-      this.teams = teams.items;
+      this.teams = teams;
       console.log( 'loaded teams', this.teams );
     });
   }

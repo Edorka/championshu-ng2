@@ -2,5 +2,5 @@
 {{teams | json}}
 <span *ngIf="teams && teams.length === 0"> No teams recorded. </span>
 <ul>
-  <li *ngFor="let team of team">{{team.name}} </li>
+  <li *ngFor="let team of teams">{{team.name}} </li>
 </ul>
