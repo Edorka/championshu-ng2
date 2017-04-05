@@ -31,12 +31,20 @@ export class TeamListComponent implements OnInit {
     });
   }
   addTeam(event) {
-     console.log('pre dialog');
-     let dialogRef = this.dialog.open(TeamCreateDialogComponent, this.config);
-     console.log('dialog', dialogRef);
-     dialogRef.afterClosed().subscribe(result => {
-       this.newTeam = result;
-     });
+    let dialogRef = this.dialog.open(TeamCreateDialogComponent, this.config);
+    dialogRef.afterClosed().subscribe(result => {
+      this.teams.unshift(result);
+    });
+  }
+  remove(team){
+    team.remove().subscribe((confirmed)=>{
+      let index = this.teams.indexOf(team, 0);
+      if (index > -1) {
+         this.teams.splice(index, 1);
+      }
+    })
+
+
   }
 
 }

@@ -13,10 +13,16 @@ export class TeamCreateDialogComponent implements OnInit {
   constructor(public dialogRef: MdDialogRef<TeamCreateDialogComponent>,
               private restangular: Restangular) {}
   ngOnInit() {
-    this.team = { name: 'put a name' };
+    this.team = {};
     this.error = false;
   }
   requestSave(event){
-      this.restangular.all('teams').post(this.team);
+      this.restangular.all('teams').post(this.team)
+        .subscribe((team) => {
+          console.log("Object saved OK", team);
+          this.dialogRef.close(team);
+        }, (error) => {
+          console.log("There was an error saving", error);
+        });
   }
 }

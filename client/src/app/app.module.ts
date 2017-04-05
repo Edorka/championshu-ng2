@@ -22,6 +22,7 @@ export function RestangularConfigFactory (RestangularProvider) {
   RestangularProvider.addResponseInterceptor((data, operation, what, url, response)=> {
       if (operation === 'getList') {
           return data.items;
+
       }
       return data;
   });
