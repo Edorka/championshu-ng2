@@ -1,0 +1,11 @@
+
+<md-dialog-content>
+  <p>
+    Please confirm {{team.name}} deletion
+  </p>
+</md-dialog-content>
+
+<md-dialog-actions>
+  <button md-button (click)="confirm($event)">I'm sure</button>
+  <button md-button (click)="cancel($event)">No, wait</button>
+</md-dialog-actions>

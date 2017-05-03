@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Restangular } from 'ng2-restangular';
 import { MdDialog, MdDialogConfig } from '@angular/material';
 import { TeamCreateDialogComponent } from '../team-create-dialog/team-create-dialog.component';
+import { TeamDeletionConfirmDialogComponent } from '../teams/team-deletion-confirm-dialog.component';
+
 @Component({
   selector: 'app-team-list',
   templateUrl: './team-list.component.html',
@@ -37,14 +39,19 @@ export class TeamListComponent implements OnInit {
     });
   }
   remove(team){
-    team.remove().subscribe((confirmed)=>{
-      let index = this.teams.indexOf(team, 0);
-      if (index > -1) {
-         this.teams.splice(index, 1);
-      }
-    })
-
-
+    let dialogRef = this.dialog.open(TeamDeletionConfirmDialogComponent, this.config);
+    let instance = dialogRef.componentInstance;
+    instance.team = team;
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      this.removeConfirmed(result);
+    });
+  }
+  removeConfirmed(team){
+    let index = this.teams.indexOf(team, 0);
+    if (index > -1) {
+       this.teams.splice(index, 1);
+    }
   }
 
 }

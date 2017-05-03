@@ -9,6 +9,7 @@ import { RestangularModule } from 'ng2-restangular';
 import { TeamListComponent } from './team-list/team-list.component';
 import { environment } from '../environments/environment';
 import { TeamCreateDialogComponent } from './team-create-dialog/team-create-dialog.component';
+import { TeamDeletionConfirmDialogComponent } from './teams/team-deletion-confirm-dialog.component';
 
 const app_routes: Routes = [
   { path: 'teams', component: TeamListComponent },
@@ -36,7 +37,8 @@ export const app_routing = RouterModule.forRoot(app_routes);
   declarations: [
     AppComponent,
     TeamListComponent,
-    TeamCreateDialogComponent
+    TeamCreateDialogComponent,
+    TeamDeletionConfirmDialogComponent
   ],
   imports: [
     MaterialModule,
@@ -47,7 +49,10 @@ export const app_routing = RouterModule.forRoot(app_routes);
     app_routing
   ],
   providers: [],
-  entryComponents: [TeamCreateDialogComponent],
+  entryComponents: [
+    TeamCreateDialogComponent,
+    TeamDeletionConfirmDialogComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
