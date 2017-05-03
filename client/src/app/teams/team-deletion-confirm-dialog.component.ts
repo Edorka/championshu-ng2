@@ -16,12 +16,8 @@ export class TeamDeletionConfirmDialogComponent implements OnInit {
     this.error = false;
   }
   confirm(){
-    console.log('team to delete', this.team);
     this.team.remove().subscribe((confirmed)=>{
         this.dialogRef.close(this.team);
     });
-  }
-  cancel(){
-    this.dialogRef.close(false);
   }
 }

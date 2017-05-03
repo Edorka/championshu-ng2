@@ -1,8 +1,18 @@
-<button md-button (click)="addTeam($event)">Add your team</button>
-{{teams | json}}
-<md-list>
- <md-list-item *ngFor="let team of teams">
-   {{team.name}}
-   <button (click)="remove(team)" md-button>Remove</button>
- </md-list-item>
-</md-list>
+<div  fxLayout="column" >
+  <div  fxLayout="row" >
+    <button md-button (click)="addTeam($event)">
+      <md-icon>create</md-icon>
+      Add your team
+    </button>
+  </div>
+  <md-list  fxFlex="100">
+   <md-list-item *ngFor="let team of teams">
+     <button (click)="open(team)" md-button>
+     {{team.name}}
+     </button>
+     <button md-icon-button (click)="remove(team)">
+       <md-icon>delete</md-icon>
+     </button>
+   </md-list-item>
+  </md-list>
+</div>
