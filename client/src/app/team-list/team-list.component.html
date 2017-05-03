@@ -7,7 +7,7 @@
   </div>
   <md-list  fxFlex="100">
    <md-list-item *ngFor="let team of teams">
-     <button (click)="open(team)" md-button>
+     <button [routerLink]="['/teams', team.id]"  md-button>
      {{team.name}}
      </button>
      <button md-icon-button (click)="remove(team)">

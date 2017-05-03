@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./team-show.component.css']
 })
 export class TeamShowComponent implements OnInit {
-  team: any;
+  team: any
   constructor() { }
 
   ngOnInit() {
