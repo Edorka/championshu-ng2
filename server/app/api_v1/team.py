@@ -40,7 +40,7 @@ def create_team():
         result = team_schema.dump(team)
         return jsonify(result.data)
     except IntegrityError as error:
-        return jsonify({'reason': error.message})
+        return jsonify({'reason': error.message}), 500
 
 
 @api.route('/teams/<int:id>', methods=['PUT'])
