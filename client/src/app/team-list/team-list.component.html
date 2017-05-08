@@ -1,10 +1,11 @@
-<div  fxLayout="column" >
-  <div  fxLayout="row" >
+<div fxLayout="column" fxLayoutAlign="space-around center" >
+  <div   >
     <button md-button (click)="addTeam($event)">
       <md-icon>create</md-icon>
       Add your team
     </button>
   </div>
+  <div   >
   <md-list  fxFlex="100">
    <md-list-item *ngFor="let team of teams">
      <button [routerLink]="['/teams', team.id]"  md-button>
@@ -15,4 +16,5 @@
      </button>
    </md-list-item>
   </md-list>
+  </div>
 </div>
