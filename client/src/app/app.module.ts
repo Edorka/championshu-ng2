@@ -7,16 +7,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { RestangularModule } from 'ng2-restangular';
+import { TEAMS_ROUTES } from './teams/teams.routes';
 import { TeamListComponent } from './team-list/team-list.component';
-import { TeamShowComponent} from './team-show/team-show.component';
+import { TeamShowComponent } from './team-show/team-show.component';
 import { environment } from '../environments/environment';
 import { TeamCreateDialogComponent } from './team-create-dialog/team-create-dialog.component';
 import { TeamDeletionConfirmDialogComponent } from './teams/team-deletion-confirm-dialog.component';
 
 const app_routes: Routes = [
-  { path: 'teams', component: TeamListComponent },
-  { path: 'teams/:id', component: TeamShowComponent },
-  { path: '**', pathMatch: 'full', redirectTo: '' }
+  { path: 'teams', component: TeamListComponent, children:TEAMS_ROUTES },
+  { path: '**', pathMatch: 'full', redirectTo: 'teams' }
 ];
 
 // Function for settting the default restangular configuration
