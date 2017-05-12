@@ -2,10 +2,8 @@
   <span>
     {{title}}
   </span>
-  <span flex></span>
-  <md-nav-list>
-    <a md-list [routerLink]="['/teams']">Teams</a>
-  </md-nav-list>
+  <span fxFlex></span>
+  <button md-button  [routerLink]="['/teams']">Teams</button>
 </md-toolbar>
 
 <router-outlet></router-outlet>
